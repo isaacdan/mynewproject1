@@ -13,7 +13,7 @@ jobs:
       echo testing
       echo another testing
 - job: job2
-  dependsOn:job1
+  dependsOn: job1
   steps:
   - script: echo Hello, Job2!
     displayName: 'Running Job2'
