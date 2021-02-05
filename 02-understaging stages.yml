@@ -12,7 +12,7 @@ stages:
       - bash: echo my first job
   - job: Secondjob 
     steps:
-      - bash: build first job
+      - bash: echo build first job
 
 - stage: Dev
   jobs:
@@ -21,7 +21,7 @@ stages:
       - bash: echo my second job
   - job: Secondjob
     steps:
-      - bash: build second job
+      - bash: echo build second job
 - stage: stage
   jobs:
   - job: third
@@ -29,7 +29,7 @@ stages:
       - bash: echo my third job
   - job: thirdjob
     steps:
-      - bash: build third job
+      - bash: echo build third job
 - stage: prod
   jobs:
   - job: fourty
@@ -37,5 +37,5 @@ stages:
       - bash: echo my fourth job
   - job: fourthjob
     steps:
-      - bash: build fourth job
+      - bash: echo build fourth job
       
