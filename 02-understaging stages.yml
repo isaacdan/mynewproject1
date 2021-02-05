@@ -9,34 +9,36 @@ stages:
   jobs:
   - job: FirstTask
     steps:
-      - bash: echo my first job
-  - job: Secondjob 
-    dependsOn: FirstTask
-    steps:
-      - bash: echo build first job
+      - bash: echo $(Build.BuildNumber)
+      - bash: echo $(Build.BuildId)
+      - bash: echo $(Build.SourceDirectory)
+      - bash: echo $(System.DefaultWorkingDirectory)
+      - bash: ls -R $(System.DefaultWorkingDirectory)
+      - bash: echo $(Build.ArtifactStagingDirectory)
+      
 
-- stage: Dev
-  jobs:
-  - job: second
-    steps:
-      - bash: echo my second job
-  - job: Secondjob
-    steps:
-      - bash: echo build second job
-- stage: stage
-  jobs:
-  - job: third
-    steps:
-      - bash: echo my third job
-  - job: thirdjob
-    steps:
-      - bash: echo build third job
-- stage: prod
-  jobs:
-  - job: fourty
-    steps:
-      - bash: echo my fourth job
-  - job: fourthjob
-    steps:
-      - bash: echo build fourth job
+# - stage: Dev
+#   jobs:
+#   - job: second
+#     steps:
+#       - bash: echo my second job
+#   - job: Secondjob
+#     steps:
+#       - bash: echo build second job
+# - stage: stage
+#   jobs:
+#   - job: third
+#     steps:
+#       - bash: echo my third job
+#   - job: thirdjob
+#     steps:
+#       - bash: echo build third job
+# - stage: prod
+#   jobs:
+#   - job: fourty
+#     steps:
+#       - bash: echo my fourth job
+#   - job: fourthjob
+#     steps:
+#       - bash: echo build fourth job
       
