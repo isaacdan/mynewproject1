@@ -20,7 +20,12 @@ stages:
           SourceFolder: '$(System.DefaultWorkingDirectory)'
           Contents: '**/*.yaml'
           TargetFolder: '$(Build.ArtifactStagingDirectory)'
-      - bash: ls -R $(System.DefaultWorkingDirectory)
+      - bash: ls -R $(Build.ArtifactStagingDirectory)
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          ArtifactName: 'dist'
+          publishLocation: 'Container'
       
 
 # - stage: Dev
