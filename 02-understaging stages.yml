@@ -7,10 +7,11 @@ pool:
 stages:
 - stage: Build
   jobs:
-  - job: Firstjobi
+  - job: FirstTask
     steps:
       - bash: echo my first job
   - job: Secondjob 
+    dependsOn: FirstTask
     steps:
       - bash: echo build first job
 
