@@ -4,52 +4,52 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-# stages:
-# - stage: Build
-#   jobs:
-#   - job: FirstTask
-#     steps:
-#       - bash: echo $(Build.BuildNumber)
-#       - bash: echo $(Build.BuildId)
-#       - bash: echo $(Build.SourcesDirectory)
-#       - bash: echo $(System.DefaultWorkingDirectory)
-#       - bash: ls -R $(System.DefaultWorkingDirectory)
-#       - bash: echo $(Build.ArtifactStagingDirectory)
-#       - task: CopyFiles@2
-#         inputs:
-#           SourceFolder: '$(System.DefaultWorkingDirectory)'
-#           Contents: '**/*.yaml'
-#           TargetFolder: '$(Build.ArtifactStagingDirectory)'
-#       - bash: ls -R $(Build.ArtifactStagingDirectory)
-#       - task: PublishBuildArtifacts@1
-#         inputs:
-#           PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-#           ArtifactName: 'dist'
-#           publishLocation: 'Container'
-      
 stages:
-- stage: Dev
+- stage: Build
   jobs:
-  - job: second
+  - job: FirstTask
     steps:
-      - bash: echo my second job
-  - job: Secondjob
-    steps:
-      - bash: echo build second job
-- stage: QA
-  jobs:
-  - job: third
-    steps:
-      - bash: echo my third job
-  - job: thirdjob
-    steps:
-      - bash: echo build third job
-- stage: prod
-  jobs:
-  - job: fourty
-    steps:
-      - bash: echo my fourth job
-  - job: fourthjob
-    steps:
-      - bash: echo build fourth job
+      - bash: echo $(Build.BuildNumber)
+      - bash: echo $(Build.BuildId)
+      - bash: echo $(Build.SourcesDirectory)
+      - bash: echo $(System.DefaultWorkingDirectory)
+      - bash: ls -R $(System.DefaultWorkingDirectory)
+      - bash: echo $(Build.ArtifactStagingDirectory)
+      - task: CopyFiles@2
+        inputs:
+          SourceFolder: '$(System.DefaultWorkingDirectory)'
+          Contents: '**/*.yaml'
+          TargetFolder: '$(Build.ArtifactStagingDirectory)'
+      - bash: ls -R $(Build.ArtifactStagingDirectory)
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          ArtifactName: 'dist'
+          publishLocation: 'Container'
+      
+# stages:
+# - stage: Dev
+#   jobs:
+#   - job: second
+#     steps:
+#       - bash: echo my second job
+#   - job: Secondjob
+#     steps:
+#       - bash: echo build second job
+# - stage: QA
+#   jobs:
+#   - job: third
+#     steps:
+#       - bash: echo my third job
+#   - job: thirdjob
+#     steps:
+#       - bash: echo build third job
+# - stage: prod
+#   jobs:
+#   - job: fourty
+#     steps:
+#       - bash: echo my fourth job
+#   - job: fourthjob
+#     steps:
+#       - bash: echo build fourth job
       
